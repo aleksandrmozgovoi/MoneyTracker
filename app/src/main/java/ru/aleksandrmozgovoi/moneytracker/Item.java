@@ -5,8 +5,8 @@ package ru.aleksandrmozgovoi.moneytracker;
  */
 
 public class Item {
-    String name;
-    int price;
+    final String name;
+    final int price;
 
     public Item(String name, int price) {
         this.name = name;

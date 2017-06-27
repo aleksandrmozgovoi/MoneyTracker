@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         final List<Item> items = new ArrayList<>();
 
         ItemsAdapter() {
+            items.add(new Item("More More More More More word", 100));
+            items.add(new Item("first \n second \n third line", 400));
+            items.add(new Item("car", 100));
+            items.add(new Item("apple", 400));
             items.add(new Item("car", 100));
             items.add(new Item("apple", 400));
         }
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(ItemViewHolder holder, int position) {
             final Item item = items.get(position);
             holder.name.setText(item.name);
-            holder.price.setText(String.valueOf(item.price));
+            holder.price.setText((String.valueOf(item.price) + " \u20bd"));
         }
 
         @Override
