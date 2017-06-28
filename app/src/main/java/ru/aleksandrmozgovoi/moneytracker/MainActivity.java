@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 /**Проверка на пустые поля*/
-                add.setEnabled(!TextUtils.isEmpty(name.getText().toString()) && !TextUtils.isEmpty(money.getText().toString()));
+                add.setEnabled(!TextUtils.isEmpty(name.getText()) && !TextUtils.isEmpty(money.getText()));
             }
             @Override
             public void afterTextChanged(Editable s) {
