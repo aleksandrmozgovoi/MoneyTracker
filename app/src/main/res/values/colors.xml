@@ -8,4 +8,12 @@
 
     <color name="color_background_item_name">#FBC322</color>
     <color name="color_background_item_price">#E5AD24</color>
+
+    <color name="colorIndicator">#ffff00</color>
+    <color name="colorActive">#ffffff</color>
+    <color name="colorInactive">#a6ffffff</color>
+    <color name="colorTabBackground">#95c9b8</color>
+
+
+
 </resources>
