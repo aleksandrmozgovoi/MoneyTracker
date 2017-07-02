@@ -14,41 +14,41 @@ import java.util.List;
  */
 
 public class ItemsAdapter  extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
-final List<Item> items = new ArrayList<>();
+    final List<Item> items = new ArrayList<>();
 
-        ItemsAdapter() {
-            items.add(new Item("More More More More More word", 100));
-            items.add(new Item("first \n second \n third line", 400));
-            items.add(new Item("car", 100));
-            items.add(new Item("apple", 400));
-            items.add(new Item("car", 100));
-            items.add(new Item("apple", 400));
-        }
+    ItemsAdapter() {
+        items.add(new Item("More More More More More word", 100));
+        items.add(new Item("first \n second \n third line", 400));
+        items.add(new Item("car", 100));
+        items.add(new Item("apple", 400));
+        items.add(new Item("car", 100));
+        items.add(new Item("apple", 400));
+    }
 
-@Override
-public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item, null));
-        }
+    }
 
-@Override
-public void onBindViewHolder(ItemViewHolder holder, int position) {
-final Item item = items.get(position);
+    @Override
+    public void onBindViewHolder(ItemViewHolder holder, int position) {
+        final Item item = items.get(position);
         holder.name.setText(item.name);
         holder.price.setText(String.valueOf(item.price));
-        }
-
-@Override
-public int getItemCount() {
-        return items.size();
-        }
-
-class ItemViewHolder extends RecyclerView.ViewHolder {
-    private final TextView name, price;
-
-    ItemViewHolder(View itemView) {
-        super(itemView);
-        name = (TextView) itemView.findViewById(R.id.name);
-        price = (TextView) itemView.findViewById(R.id.price);
     }
-}
+
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
+    class ItemViewHolder extends RecyclerView.ViewHolder {
+        private final TextView name, price;
+
+        ItemViewHolder(View itemView) {
+            super(itemView);
+            name = (TextView) itemView.findViewById(R.id.name);
+            price = (TextView) itemView.findViewById(R.id.price);
+        }
+    }
 }

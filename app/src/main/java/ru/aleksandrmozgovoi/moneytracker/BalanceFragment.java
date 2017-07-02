@@ -15,6 +15,6 @@ public class BalanceFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_balance, null);
+        return inflater.inflate(R.layout.fragment_balance, null);
     }
 }

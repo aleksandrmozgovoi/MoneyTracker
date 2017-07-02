@@ -29,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            ItemsFragment fragment = new ItemsFragment();
-            Bundle args = new Bundle();
             switch (position){
                 /**Вкладка расходов*/
                 case 0:
+                    ItemsFragment fragment = new ItemsFragment();
+                    Bundle args = new Bundle();
                     args.putString(ItemsFragment.ARG_TYPE, Item.TYPE_EXPENSE);
                     fragment.setArguments(args);
                     return fragment;
                 /**Вкладка доходов*/
                 case 1:
                     fragment = new ItemsFragment();
+                    args = new Bundle();
                     args.putString(ItemsFragment.ARG_TYPE, Item.TYPE_INCOME);
                     fragment.setArguments(args);
                     return fragment;
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     BalanceFragment balanceFragment = new BalanceFragment();
                     return balanceFragment;
+                default:
+                    return fragment = new ItemsFragment();
             }
-            return fragment;
         }
 
         @Override
