@@ -13,17 +13,8 @@ import java.util.List;
  * Created by AleksandrMozgovoy on 30.06.2017.
  */
 
-public class ItemsAdapter  extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
+class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
     final List<Item> items = new ArrayList<>();
-
-    ItemsAdapter() {
-        items.add(new Item("More More More More More word", 100));
-        items.add(new Item("first \n second \n third line", 400));
-        items.add(new Item("car", 100));
-        items.add(new Item("apple", 400));
-        items.add(new Item("car", 100));
-        items.add(new Item("apple", 400));
-    }
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,6 +31,15 @@ public class ItemsAdapter  extends RecyclerView.Adapter<ItemsAdapter.ItemViewHol
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    public void clear() {
+        items.clear();
+    }
+
+    public void addAll(List<Item> items) {
+        this.items.addAll(items);
+        notifyDataSetChanged();
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
