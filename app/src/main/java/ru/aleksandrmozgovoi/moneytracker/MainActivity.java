@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     return new BalanceFragment();
                 default:
                     return fragment = new ItemsFragment();
+
             }
         }
 
