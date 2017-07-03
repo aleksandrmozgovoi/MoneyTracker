@@ -86,7 +86,6 @@ public class ItemsFragment extends Fragment {
 
     private void addItem(final Item item){
         getLoaderManager().restartLoader(LOADER_ADD, null, new LoaderManager.LoaderCallbacks<AddResult>() {
-
             @Override
             public Loader<AddResult> onCreateLoader(int id, Bundle args) {
                 return new AsyncTaskLoader<AddResult>(getContext()) {
