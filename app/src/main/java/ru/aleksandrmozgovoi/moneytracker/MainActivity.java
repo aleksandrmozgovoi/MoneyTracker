@@ -46,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     return fragment;
                 /**Вкладка баланса*/
                 case 2:
-                    BalanceFragment balanceFragment = new BalanceFragment();
-                    return balanceFragment;
+                    return new BalanceFragment();
                 default:
                     return fragment = new ItemsFragment();
             }
