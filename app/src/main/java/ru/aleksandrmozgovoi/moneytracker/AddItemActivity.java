@@ -46,8 +46,8 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent result = new Intent();
-                result.putExtra(RESULT_ITEM,new Item(name.getText().toString(), Integer.parseInt(money.getText().toString()) ,type));
-                setResult(RESULT_OK,result);
+                result.putExtra(RESULT_ITEM,new Item(name.getText().toString(), Integer.parseInt(money.getText().toString()), type));
+                setResult(RESULT_OK, result);
                 finish();
             }
         });
