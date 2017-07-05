@@ -1,5 +1,6 @@
 package ru.aleksandrmozgovoi.moneytracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,9 @@ import java.util.List;
 import ru.aleksandrmozgovoi.moneytracker.api.AddResult;
 import ru.aleksandrmozgovoi.moneytracker.api.LSApi;
 
+import static android.app.Activity.RESULT_OK;
+import static ru.aleksandrmozgovoi.moneytracker.AddItemActivity.RC_ADD_ITEM;
+
 /**
  * Created by AleksandrMozgovoy on 30.06.2017.
  */
@@ -31,6 +35,7 @@ public class ItemsFragment extends Fragment {
 
     private String type;
     private LSApi api;
+    private View add;
 
     @Nullable
     @Override
@@ -43,6 +48,16 @@ public class ItemsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final RecyclerView items = (RecyclerView) view.findViewById(R.id.items);
         items.setAdapter(adapter);
+
+        add = view.findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),AddItemActivity.class);
+                intent.putExtra(AddItemActivity.EXTRA_TYPE,type);
+                startActivityForResult(intent,RC_ADD_ITEM);
+            }
+        });
 
         type = getArguments().getString(ARG_TYPE);
         api = ((LSApp) getActivity().getApplication()).api();
@@ -112,4 +127,14 @@ public class ItemsFragment extends Fragment {
             }
         }).forceLoad();
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RC_ADD_ITEM&&resultCode == RESULT_OK){
+            Item item = (Item) data.getSerializableExtra(AddItemActivity.RESULT_ITEM);
+            Toast toast = Toast.makeText(getContext(),item.name,Toast.LENGTH_LONG);
+            toast.show();
+        }
+    }
+
 }

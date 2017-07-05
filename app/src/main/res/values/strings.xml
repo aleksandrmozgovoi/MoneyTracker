@@ -16,4 +16,5 @@
     </array>
 
     <string name="error">Произошла ошибка</string>
+    <string name="new_item">Новая запись</string>
 </resources>
