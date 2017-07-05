@@ -4,4 +4,5 @@
     <dimen name="text_size_add">40sp</dimen>
     <dimen name="margin_l">16dp</dimen>
     <dimen name="margin_s">5dp</dimen>
+    <dimen name="margin_add_button">18dp</dimen>
 </resources>

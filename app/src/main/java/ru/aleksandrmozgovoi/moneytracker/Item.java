@@ -1,10 +1,12 @@
 package ru.aleksandrmozgovoi.moneytracker;
 
+import java.io.Serializable;
+
 /**
  * Created by AleksandrMozgovoy on 23.06.2017.
  */
 
-public class Item {
+public class Item implements Serializable {
     public static final String TYPE_EXPENSE = "expense";
     public static final String TYPE_INCOME = "income";
 
