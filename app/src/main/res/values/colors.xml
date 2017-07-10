@@ -7,7 +7,8 @@
     <color name="colorText">#ffffff</color>
 
     <color name="color_background_item_name">#FBC322</color>
-    <color name="color_background_item_price">#E5AD24</color>
+    <color name="color_background_item_price">#30303030</color>
+    <color name="color_background_item_activated">#995104</color>
 
     <color name="colorIndicator">#ffff00</color>
     <color name="colorActive">#ffffff</color>
