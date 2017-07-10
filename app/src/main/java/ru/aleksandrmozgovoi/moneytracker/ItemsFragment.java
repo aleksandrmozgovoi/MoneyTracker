@@ -53,7 +53,7 @@ public class ItemsFragment extends Fragment {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             mode.getMenuInflater().inflate(R.menu.items, menu);
-			add.setVisibility(View.INVISIBLE);
+			add.setVisibility(View.GONE);
             return true;
         }
 
@@ -72,8 +72,8 @@ public class ItemsFragment extends Fragment {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    for (Integer selecedItemId : adapter.getSelectedItems())
-                                        adapter.remove(selecedItemId);
+									for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--)
+										adapter.remove(adapter.getSelectedItems().get(i));
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
@@ -118,7 +118,8 @@ public class ItemsFragment extends Fragment {
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                toggleSelection(e, items);
+                if (actionMode != null)
+                    toggleSelection(e, items);
                 return super.onSingleTapConfirmed(e);
             }
         });
@@ -155,6 +156,8 @@ public class ItemsFragment extends Fragment {
 
     private void toggleSelection(MotionEvent e, RecyclerView items) {
         adapter.toggleSelection(items.getChildLayoutPosition(items.findChildViewUnder(e.getX(), e.getY())));
+        String title = "Выбрано: " + adapter.getCountSelectedItem();
+        if (actionMode != null) actionMode.setTitle(title);
     }
 
     private void loadItems() {

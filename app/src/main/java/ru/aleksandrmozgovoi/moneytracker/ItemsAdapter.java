@@ -53,6 +53,10 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
         return items;
     }
 
+	int getCountSelectedItem() {
+		return selectedItems.size();
+	}
+
 	public void remove(int pos) {
 		items.remove(pos);
 		notifyItemRemoved(pos);

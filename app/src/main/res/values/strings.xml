@@ -19,4 +19,5 @@
     <string name="new_item">Новая запись</string>
 
     <string name="confirm_remove">Вы уверены?</string>
+    <string name="trash_title">Удаление</string>
 </resources>

@@ -7,5 +7,5 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_trash"
         android:orderInCategory="10"
-        android:title="" />
+        android:title="@string/trash_title" />
 </menu>
