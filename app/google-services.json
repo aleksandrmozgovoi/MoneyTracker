@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "46754952417",
+    "project_id": "ls-moneytracker-aa2e4"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46754952417:android:8951bdab2b088445",
+        "android_client_info": {
+          "package_name": "ru.aleksandrmozgovoi.moneytracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46754952417-k06fs8q759r20c5cjhmmcr4jblspv5of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.aleksandrmozgovoi.moneytracker",
+            "certificate_hash": "a0fdfc553bb2096df60ee8cab7f88adbf2b54d36"
+          }
+        },
+        {
+          "client_id": "46754952417-9thu20sbc5lheqns49smqpnv8lu310fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWdqheIhIPmLpB9I4rcJQvWoP-7FH8d28"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

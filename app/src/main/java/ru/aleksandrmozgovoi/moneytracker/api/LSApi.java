@@ -22,4 +22,9 @@ public interface LSApi {
     @POST("items/add")
     Call<AddResult> add(@Query("name") String name, @Query("price") int price, @Query("type") String type);
 
+    @GET("auth")
+    Call<AuthResult> auth(@Query("social_user_id") String socialUserId);
+
+	@POST("items/remove")
+	Call<RemoveResult> remove(@Query("id") int id);
 }
