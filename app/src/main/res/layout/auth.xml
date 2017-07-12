@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAuthBackground"
+    >
+
+    <ImageView
+        android:layout_width="137dp"
+        android:layout_height="132dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView"/>
+
+    <TextView
+        android:layout_width="198dp"
+        android:layout_height="32dp"
+        android:text="@string/title_auth_activity"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:textAlignment="center"
+        android:id="@+id/textView"/>
+
+    <ImageView
+        android:id="@+id/auth"
+        android:layout_width="201dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gplus_button"/>
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/auth"
+        android:src="@drawable/bg_intro"
+        android:scaleType="fitXY"
+        android:layout_marginTop="25dp"/>
+</RelativeLayout>

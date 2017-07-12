@@ -9,6 +9,8 @@
 
     <string name="rouble">P</string>
 
+    <string name="title_auth_activity">Ваш незаменимый помощник\n в управлении бюджетом</string>
+
     <array name="main_pager_titles">
         <item>@string/expenses</item>
         <item>@string/incomes</item>

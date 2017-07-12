@@ -14,7 +14,8 @@
     <color name="colorActive">#ffffff</color>
     <color name="colorInactive">#a6ffffff</color>
     <color name="colorTabBackground">#95c9b8</color>
-
+    <color name="colorAuthBackground">#95c9b8</color>
+    <color name="colorTabBackgroundDark">#87B6A7</color>
 
 
 </resources>

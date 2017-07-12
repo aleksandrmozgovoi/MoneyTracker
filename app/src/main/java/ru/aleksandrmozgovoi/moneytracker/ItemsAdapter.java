@@ -62,6 +62,11 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 		notifyItemRemoved(pos);
 	}
 
+	public Item getItem(int pos){
+		return  items.get(pos);
+	}
+
+
     @Override
     public int getItemCount() {
         return items.size();
@@ -74,6 +79,11 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 
     public void addAll(List<Item> items) {
         this.items.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
         notifyDataSetChanged();
     }
 

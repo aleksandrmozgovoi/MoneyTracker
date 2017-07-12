@@ -1,5 +1,6 @@
 package ru.aleksandrmozgovoi.moneytracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,19 +11,33 @@ import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+	private TabLayout tabs;
+	private ViewPager pages;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        final ViewPager pages = (ViewPager) findViewById(R.id.pages);
-        pages.setAdapter(new MainPagerAdapter());
-        tabs.setupWithViewPager(pages);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+		setContentView(R.layout.activity_main);
+		setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
+
+		tabs = (TabLayout) findViewById(R.id.tabs);
+        pages = (ViewPager) findViewById(R.id.pages);
+
     }
 
-    private class MainPagerAdapter extends FragmentPagerAdapter {
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (!((LSApp) getApplication()).isLoggedIn())
+			startActivity(new Intent(this, AuthActivity.class));
+		else {
+			pages.setAdapter(new MainPagerAdapter());
+			tabs.setupWithViewPager(pages);
+		}
+	}
+
+	private class MainPagerAdapter extends FragmentPagerAdapter {
         private final String[] titles;
 
         MainPagerAdapter() {

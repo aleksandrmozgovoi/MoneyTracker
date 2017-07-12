@@ -27,6 +27,7 @@ import java.util.List;
 
 import ru.aleksandrmozgovoi.moneytracker.api.AddResult;
 import ru.aleksandrmozgovoi.moneytracker.api.LSApi;
+import ru.aleksandrmozgovoi.moneytracker.api.RemoveResult;
 
 import static android.app.Activity.RESULT_OK;
 import static ru.aleksandrmozgovoi.moneytracker.AddItemActivity.RC_ADD_ITEM;
@@ -72,8 +73,10 @@ public class ItemsFragment extends Fragment {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-									for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--)
-										adapter.remove(adapter.getSelectedItems().get(i));
+									for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--) {
+                                        removeItem(adapter.getItem(i));//Удаление из сервера
+                                        adapter.remove(adapter.getSelectedItems().get(i));//Удаление из адаптера
+                                    }
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
@@ -214,7 +217,7 @@ public class ItemsFragment extends Fragment {
 
             @Override
             public void onLoadFinished(Loader<AddResult> loader, AddResult data) {
-
+               adapter.addItem(item);
             }
 
             @Override
@@ -228,9 +231,39 @@ public class ItemsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_ADD_ITEM && resultCode == RESULT_OK){
             Item item = (Item) data.getSerializableExtra(AddItemActivity.RESULT_ITEM);
+            addItem(item);
             Toast toast = Toast.makeText(getContext(), item.name, Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    public void removeItem(final Item item) { //remove item from the server
+        getLoaderManager().restartLoader(LOADER_REMOVE, null, new LoaderManager.LoaderCallbacks<RemoveResult>() {
+
+            @Override
+            public Loader<RemoveResult> onCreateLoader(int id, Bundle args) {
+                return new AsyncTaskLoader<RemoveResult>(getContext()) {
+
+                    @Override
+                    public RemoveResult loadInBackground() {
+                        try {
+                            return api.remove(item.getId()).execute().body();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    }
+                };
+            }
+
+            @Override
+            public void onLoadFinished(Loader<RemoveResult> loader, RemoveResult data) {
+            }
+
+            @Override
+            public void onLoaderReset(Loader<RemoveResult> loader) {
+            }
+        }).forceLoad();
     }
 
 }
